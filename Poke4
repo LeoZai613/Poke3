@@ -1,0 +1,93 @@
+​
+
+Sure! Here's a simple example of a Pokemon battle game using JavaScript:
+
+Copy code
+// Define the two Pokemon that will battle
+const pikachu = {
+  name: "Pikachu",
+  hp: 100,
+  attack: 55,
+  defense: 40
+};
+
+const charmander = {
+  name: "Charmander",
+  hp: 100,
+  attack: 60,
+  defense: 45
+};
+
+// Define the function for calculating damage
+const calculateDamage = (attacker, defender) => {
+  // The damage formula is: attack - defense * random factor between 0.85 and 1
+  const damage = attacker.attack - defender.defense * (Math.random() * (1 - 0.85) + 0.85);
+  return Math.round(damage);
+};
+
+// Define the function for executing a turn in the battle
+const battleTurn = (attacker, defender) => {
+  // Calculate the damage
+  const damage = calculateDamage(attacker, defender);
+  // Subtract the damage from the defender's HP
+  defender.hp -= damage;
+  console.log(`${attacker.name} attacked ${defender.name} for ${damage} damage!`);
+  console.log(`${defender.name} has ${defender.hp} HP remaining.`);
+};
+
+// Define the function for starting the battle
+const startBattle = () => {
+  console.log(`${pikachu.name} vs ${charmander.name}`);
+  console.log("BATTLE START!");
+
+  // The battle will continue until one of the Pokemon's HP is less than or equal to 0
+  while (pikachu.hp > 0 && charmander.hp > 0) {
+    // The player will always go first
+    battleTurn(pikachu, charmander);
+    // If the opponent is still alive, they'll attack next
+    if (charmander.hp > 0) {
+      battleTurn(charmander, pikachu);
+    }
+  }
+
+  // The battle is over, determine the winner
+  if (pikachu.hp <= 0) {
+    console.log(`${charmander.name} wins!`);
+  } else {
+    console.log(`${pikachu.name} wins!`);
+  }
+};
+
+// Start the battle
+startBattle();
+This simple example demonstrates how to create two Pokemon objects, define a function for calculating damage, a function for executing a turn in the battle, and a function for starting the battle. The battle will continue until one of the Pokemon's HP is less than or equal to 0, and the player will always go first.
+
+You can expand on this example by adding more Pokemon, moves, and other features to make the battle more dynamic and interesting.
+
+
+
+define functions 
+In JavaScript, a function is a block of code that can be defined and called by name. Functions are a fundamental building block of the JavaScript language, and they can be used to perform a specific task or calculate a value.
+
+Here's the syntax for defining a function in JavaScript:
+
+Copy code
+function functionName(parameters) {
+  // code to be executed
+}
+The functionName is the name of the function, and the parameters are the values that the function takes as input. The code inside the curly braces is the body of the function, and this is the code that will be executed when the function is called.
+
+Here's an example of a simple function that takes a single parameter and returns the square of that value:
+
+Copy code
+function square(x) {
+  return x * x;
+}
+
+// Call the function and pass in a value of 4
+const result = square(4);
+// Outputs 16
+console.log(result);
+In this example, the function is defined with the name square, and it takes a single parameter x. The function calculates the square of x by multiplying x by itself and returns the result using the return statement. The function is then called with a value of 4, and the result is stored in the result variable. Finally, the value of result is logged to the console.
+
+Functions are a powerful and flexible tool in JavaScript, and they can be used to organize and reuse code in your programs.
